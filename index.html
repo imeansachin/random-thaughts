@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funny Name Randomizer</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa;
+        }
+        h1 {
+            color: #00796b;
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #00796b;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004d40;
+        }
+        .output-box {
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px solid #00796b;
+            border-radius: 10px;
+            background-color: #ffffff;
+            display: inline-block;
+            max-width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Funny Name Randomizer 🤪</h1>
+    <p>Enter someone's name and see what funny text appears!</p>
+    <input type="text" id="nameInput" placeholder="Enter a name...">
+    <button onclick="generateFunnyText()">Make Me Laugh!</button>
+    <div class="output-box" id="outputBox">
+        Your funny text will appear here!
+    </div>
+
+    <script>
+        const funnyTexts = [
+            "{name} is so cool... they have their own fan club (run by themselves). 😎",
+            "Breaking news: {name} was caught eating snacks at midnight again! 🍕",
+            "{name} is proof that legends exist... and they forget their wallet every time. 😅",
+            "Fun fact: {name} thinks they're the boss. We let them think that. 😂",
+            "{name} once won an award for... absolutely nothing. Congrats! 🏆",
+            "Rumor has it that {name} sleeps with one eye open... because of the snack thief. 👀",
+            "If being awesome was a crime, {name} would still be innocent. 🤭",
+            "{name} is like a Wi-Fi signal—strong when you don’t need them. 📶",
+            "{name} deserves a standing ovation for their... ability to trip over nothing! 👏",
+            "Breaking records: {name} laughed so hard they scared the neighbors. 😆"
+        ];
+
+        function generateFunnyText() {
+            const name = document.getElementById("nameInput").value.trim();
+            const outputBox = document.getElementById("outputBox");
+
+            if (!name) {
+                outputBox.innerText = "Please enter a name first. 😜";
+                return;
+            }
+
+
+            // Custom response for "Swati"
+            if (name.toLowerCase() === "Swati") {
+                outputBox.innerText = "Swati: Her innocence and honesty shine brightly, and her kind heart spreads warmth. My advice: Be selfish for yourself and prioritize your happiness. 🌟💖";
+                return;
+            }
+
+            // Random text for other names
+            const randomIndex = Math.floor(Math.random() * funnyTexts.length);
+            const funnyText = funnyTexts[randomIndex].replace("{name}", name);
+            outputBox.innerText = funnyText;
+        }
+    </script>
+</body>
+</html>
